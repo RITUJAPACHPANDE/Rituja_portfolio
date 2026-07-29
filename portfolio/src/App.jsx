@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import profile from "./assets/image.jpeg";
+import profile from "./assets/Image.jpeg";
 import { FaLinkedin } from "react-icons/fa";
 function App() {
   const [formData, setFormData] = useState({

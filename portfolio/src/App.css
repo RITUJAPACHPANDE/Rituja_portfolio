@@ -15,7 +15,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 
-  background: url("./assets/image3.jpeg") center/cover no-repeat fixed;
+  background: url("./assets/Image3.jpeg") center/cover no-repeat fixed;
 }
 
 img{
@@ -300,11 +300,7 @@ header{
   transform:translateY(-5px);
 }
 
-/* .contact-box h3{
-  color:#84A98C;
-  margin-bottom:8px;
-  font-size:20px;
-} */
+
 .contact-box h3 {
   display: flex;
   align-items: center;
