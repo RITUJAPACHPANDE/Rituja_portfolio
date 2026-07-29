@@ -10,8 +10,6 @@ function App() {
     message: "",
   });
   
-  const scriptURL =
-  "https://script.google.com/macros/s/AKfycby5eXPJ1Cmd3GHbfDqJnErva5104YOhk94kSExdLtEDZYxaS4fnxLgLVch1Qc-1yAu_/exec";
   
   const handleChange = (e) => {
     setFormData({
@@ -20,25 +18,25 @@ function App() {
     });
   };
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(formData),
-    })
-      .then(() => {
-        alert("Message Sent Successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch(() => {
-        alert("Something went wrong!");
-      });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetch(scriptURL, {
+  //     method: "POST",
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then(() => {
+  //       alert("Message Sent Successfully!");
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         subject: "",
+  //         message: "",
+  //       });
+  //     })
+  //     .catch(() => {
+  //       alert("Something went wrong!");
+  //     });
+  // };
   return (
     <>
       {/* Navbar */}
@@ -183,7 +181,7 @@ function App() {
       target="_blank"
       rel="noopener noreferrer"
     >
-      linkedin.com/in/rituja-pachpande-25771a316
+     Rituja Pachpande
     </a>
   </p>
 </div>
@@ -193,7 +191,7 @@ function App() {
 
 
       {/* Contact Form */}
-      <section id="contact-form">
+      {/* <section id="contact-form">
         <div className="section-title">
           <h2>Send Me a Message</h2>
         </div>
@@ -241,7 +239,7 @@ function App() {
             <button type="submit">Send Message</button>
           </form>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer>
