@@ -15,7 +15,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 
-  background: url("./assets/Image3.jpeg") center/cover no-repeat fixed;
+  background: url("/background.jpeg") center center/cover no-repeat fixed;;
 }
 
 img{
