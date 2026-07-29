@@ -10,7 +10,8 @@ function App() {
     message: "",
   });
   
-  const scriptURL = import.meta.env.VITE_SCRIPT_URL;
+  const scriptURL =
+  "https://script.google.com/macros/s/AKfycby5eXPJ1Cmd3GHbfDqJnErva5104YOhk94kSExdLtEDZYxaS4fnxLgLVch1Qc-1yAu_/exec";
   
   const handleChange = (e) => {
     setFormData({
