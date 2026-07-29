@@ -318,55 +318,6 @@ header{
 .contact-box:hover p{
   color:#ffffff;
 }
-/* Contact Form */
-
-.form-container{
-    max-width:700px;
-    margin:auto;
-}
-
-.form-container form{
-    display:flex;
-    flex-direction:column;
-}
-
-.form-container label{
-    font-size:16px;
-    font-weight:600;
-    color:#2F3E46;
-    margin-bottom:8px;
-}
-
-.form-container input,
-.form-container textarea{
-    width:100%;
-    padding:14px;
-    border:1px solid #84A98C;
-    border-radius:8px;
-    margin-bottom:20px;
-    outline:none;
-    font-size:16px;
-}
-
-.form-container textarea{
-    height:160px;
-    resize:none;
-}
-
-.form-container button{
-    width:200px;
-    padding:15px;
-    background:#2F3E46;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.form-container button:hover{
-    background:#84A98C;
-}
 /*FOOTER */
 
 footer{

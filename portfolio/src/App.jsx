@@ -1,43 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 import profile from "./assets/Image.jpeg";
 import { FaLinkedin } from "react-icons/fa";
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  
-  
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch(scriptURL, {
-  //     method: "POST",
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then(() => {
-  //       alert("Message Sent Successfully!");
-  //       setFormData({
-  //         name: "",
-  //         email: "",
-  //         subject: "",
-  //         message: "",
-  //       });
-  //     })
-  //     .catch(() => {
-  //       alert("Something went wrong!");
-  //     });
-  // };
   return (
+
     <>
       {/* Navbar */}
       <header>
@@ -190,63 +157,13 @@ function App() {
       </section>
 
 
-      {/* Contact Form */}
-      {/* <section id="contact-form">
-        <div className="section-title">
-          <h2>Send Me a Message</h2>
-        </div>
-
-        <div className="form-container">
-        <form onSubmit={handleSubmit}>
-            <label>Full Name</label>
-            <input
-  type="text"
-  name="name"
-  value={formData.name}
-  onChange={handleChange}
-  placeholder="Enter your full name"
-  required
-/>
-
-            <label>Email Address</label>
-            <input
-  type="email"
-  name="email"
-  value={formData.email}
-  onChange={handleChange}
-  placeholder="Enter your email"
-  required
-/>
-
-            <label>Subject</label>
-            <input
-  type="text"
-  name="subject"
-  value={formData.subject}
-  onChange={handleChange}
-  placeholder="Enter subject"
-/>
-
-            <label>Message</label>
-            <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-         placeholder="Write your message here..."
-           required
-/>
-
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </section> */}
 
       {/* Footer */}
       <footer>
         <p>© 2026 Rituja Pachpande | All Rights Reserved.</p>
       </footer>
     </>
-  );
-}
+    );
+  }
 
 export default App;
