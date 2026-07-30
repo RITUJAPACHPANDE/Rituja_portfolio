@@ -1,207 +1,98 @@
-// import { useState } from "react";
-import "./App.css";
-import profile from "./assets/Image.jpeg";
-import { FaLinkedin } from "react-icons/fa";
-function App() {
+import { useEffect } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import Services from './components/Services/Services';
+import Skills from './components/Skills/Skills';
+import Projects from './components/Projects/Projects';
+import DeveloperCLI from './components/DeveloperCLI/DeveloperCLI';
+import Experience from './components/Experience/Experience';
+import Education from './components/Education/Education';
+import Certifications from './components/Certifications/Certifications';
+import FAQ from './components/FAQ/FAQ';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
+import CustomCursor from './components/CustomCursor/CustomCursor';
+
+export default function App() {
+  useEffect(() => {
+    // Scroll reveal observer
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      {
+        threshold: 0.1, // trigger when 10% visible
+        rootMargin: '0px 0px -50px 0px', // slightly offset trigger point
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      revealElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
-
     <>
-      {/* Navbar */}
-      <header>
-        <nav className="navbar">
-          <h2 className="logo">Portfolio.</h2>
+      {/* Interactive Custom Cursor */}
+      <CustomCursor />
 
-          <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      {/* Hero */}
-      <section id="home" className="hero">
-        <div className="hero-text">
-          <h3>Hello, I'm</h3>
-          <h1>Rituja Pachpande</h1>
-          <h2>Software Developer</h2>
-
-          <p>
-            I am a Software Developer focused on building modern,
-            scalable, and user-friendly applications.
-          </p>
-
-          <div className="hero-btn">
-            <a href="#skills" className="btn">View Skills</a>
-            <a href="#contact" className="btn-outline">Contact Me</a>
-          </div>
-        </div>
-
-        <div className="hero-image">
-          <img src={profile} alt="Profile" />
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="about" id="about">
-
-      <div className="about-container">
-
-        {/* Left Side */}
-        <div className="about-left">
-
-          <div className="info-card">
-            <h3>🎓 Education</h3>
-            <p>B.Tech (Computer Science Engineering)</p>
-          </div>
-
-          <div className="info-card">
-            <h3>💼 Experience</h3>
-            <p>IT Intern</p>
-            <span>Viami Global Services LLP</span>
-          </div>
-
-          <div className="info-card">
-            <h3>💻 Tech Stack</h3>
-            <p>Java • Reac • SQL</p>
-            <p>HTML • CSS  • JavaScript</p>
-          </div>
-
-
-        </div>
-
-        {/* Right Side */}
-        <div className="about-right">
-
-          <h2>About Me</h2>
-
-          <div className="underline"></div>
-
-          <p>
-            I am a <strong>Full Stack Java Developer</strong> with a strong
-            foundation in Java, React, JavaScript, HTML, CSS, and SQL.
-            I enjoy building modern, responsive, and user-friendly web
-            applications that provide meaningful user experiences.
-          </p>
-
-          <p>
-            Currently, I am working as an <strong>IT Intern</strong>,
-            where I am gaining hands-on experience in web development,
-            online bidding, and client communication. I am passionate
-            about learning new technologies, solving real-world problems,
-            and continuously improving my technical skills.
-          </p>
-
-        </div>
-
+      {/* Futuristic Animated Background (CSS Only) */}
+      <div className="bg-wrapper">
+        <div className="bg-grid" />
+        <div className="blob blob-1" />
+        <div className="blob blob-2" />
+        <div className="blob blob-3" />
       </div>
 
-    </section>
+      {/* Navigation */}
+      <Navbar />
 
+      {/* Main Page Flow */}
+      <main>
+        <Hero />
+        
+        <div className="section-divider" />
+        <About />
 
-      {/* Skills */}
-      <section id="skills">
-        <div className="section-title">
-          <h2>Skills</h2>
-        </div>
+        <div className="section-divider" />
+        <Services />
+        
+        <div className="section-divider" />
+        <Skills />
+        
+        <div className="section-divider" />
+        <Projects />
 
-        <div className="skills-grid">
-          <div className="skill">Core Java</div>
-          <div className="skill">Advanced Java</div>
-          <div className="skill">HTML, CSS, JavaScript</div>
-          <div className="skill">React JS</div>
-          <div className="skill">Oracle</div>
-          <div className="skill">DevSecOps Tools</div>
-        </div>
-      </section>
+        <div className="section-divider" />
+        <DeveloperCLI />
+        
+        <div className="section-divider" />
+        <Experience />
+        
+        <div className="section-divider" />
+        <Education />
 
-      {/* Education */}
-      <section id="education">
-        <div className="section-title">
-          <h2>Education</h2>
-        </div>
+        <div className="section-divider" />
+        <Certifications />
 
-        <div className="education-grid">
-          <div className="education-card">
-            <h3>B-Tech in CSE</h3>
-            <h4>Rajiv Gandhi Proudyogiki Vishwavidyalaya</h4>
-            <p>Thakur Shivkumar Singh Memorial College, Burhanpur</p>
-            <p>CGPA : 7.71 / 10</p>
-            <span>2021 - 2025</span>
-          </div>
-
-          <div className="education-card">
-            <h3>Higher Secondary</h3>
-            <h4>Science Stream</h4>
-            <p>Govt. Higher Secondary School Nepanagar</p>
-            <p>76%</p>
-            <span>2020 - 2021</span>
-          </div>
-
-          <div className="education-card">
-            <h3>Secondary School</h3>
-            <h4>General Education</h4>
-            <p>Higher Secondary School Nepanagar</p>
-            <p>75%</p>
-            <span>2018 - 2019</span>
-          </div>
-        </div>
-      </section>
-
-     
-      
-      {/* Contact */}
-      <section id="contact">
-        <div className="section-title">
-          <h2>Contact Me</h2>
-        </div>
-
-        <div className="contact-container">
-          <div className="contact-info">
-            <div className="contact-box">
-              <h3>📧 Email</h3>
-              <p>ritujapachpane12@gmail.com</p>
-            </div>
-
-            <div className="contact-box">
-              <h3>📱 Phone</h3>
-              <p>+91 6268635941</p>
-            </div>
-
-            <div className="contact-box">
-              <h3>📍 Location</h3>
-              <p>Saikheda Khurd, Nepanagar (M.P.)</p>
-            </div>
-
-            <div className="contact-box">
-  <h3>
-    <FaLinkedin /> LinkedIn
-  </h3>
-
-  <p>
-    <a
-      href="https://www.linkedin.com/in/rituja-pachpande-25771a316"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-     Rituja Pachpande
-    </a>
-  </p>
-</div>
-          </div>
-        </div>
-      </section>
-
-
+        <div className="section-divider" />
+        <FAQ />
+        
+        <div className="section-divider" />
+        <Contact />
+      </main>
 
       {/* Footer */}
-      <footer>
-        <p>© 2026 Rituja Pachpande | All Rights Reserved.</p>
-      </footer>
+      <Footer />
     </>
-    );
-  }
-
-export default App;
+  );
+}
