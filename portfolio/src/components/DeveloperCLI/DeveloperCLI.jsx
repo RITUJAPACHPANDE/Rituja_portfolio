@@ -8,7 +8,7 @@ export default function DeveloperCLI() {
     { type: 'system', text: 'Type "help" to view list of available commands.' }
   ]);
   const [inputVal, setInputVal] = useState('');
-  const terminalEndRef = useRef(null);
+  const cliBodyRef = useRef(null);
 
   const commandResponses = {
     help: 'Available commands:\n  about     - Brief bio of Rituja\n  skills    - List of core competencies\n  projects  - Highlighted project summary\n  contact   - Get contact credentials\n  clear     - Clean the console history',
@@ -39,7 +39,9 @@ export default function DeveloperCLI() {
   };
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (cliBodyRef.current) {
+      cliBodyRef.current.scrollTop = cliBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   return (
@@ -61,7 +63,7 @@ export default function DeveloperCLI() {
             <div className="cli-title"><FaTerminal /> bash - rituja@terminal</div>
           </div>
           
-          <div className="cli-body">
+          <div className="cli-body" ref={cliBodyRef}>
             {history.map((line, idx) => (
               <div key={idx} className={`cli-line type-${line.type}`}>
                 {line.text}
@@ -78,7 +80,6 @@ export default function DeveloperCLI() {
                 aria-label="Terminal command"
               />
             </form>
-            <div ref={terminalEndRef} />
           </div>
         </div>
       </div>
