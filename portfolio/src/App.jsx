@@ -45,23 +45,61 @@ function App() {
       </section>
 
       {/* About */}
-      <section id="about">
-        <div className="section-title">
-          <h2>About Me</h2>
+      <section className="about" id="about">
+
+      <div className="about-container">
+
+        {/* Left Side */}
+        <div className="about-left">
+
+          <div className="info-card">
+            <h3>🎓 Education</h3>
+            <p>B.Tech (Computer Science Engineering)</p>
+          </div>
+
+          <div className="info-card">
+            <h3>💼 Experience</h3>
+            <p>IT Intern</p>
+            <span>Viami Global Services LLP</span>
+          </div>
+
+          <div className="info-card">
+            <h3>💻 Tech Stack</h3>
+            <p>Java • Reac • SQL</p>
+            <p>HTML • CSS  • JavaScript</p>
+          </div>
+
+
         </div>
 
-        <div className="about-content">
+        {/* Right Side */}
+        <div className="about-right">
+
+          <h2>About Me</h2>
+
+          <div className="underline"></div>
+
           <p>
-          I am a passionate Software Developer with a strong foundation in Java, React.js, HTML, CSS, JavaScript, and Oracle.
-          I enjoy building modern, responsive, and user-friendly web applications that provide a great user experience.
-        I am passionate about solving real-world problems through clean, efficient, and maintainable code. 
-        I enjoy learning new technologies, improving my programming skills, and working on projects that help me grow as a developer.
-       As a recent Computer Science graduate, I am eager to begin my professional career,
-       contribute to innovative software solutions, and continuously enhance my technical and problem-solving abilities. 
-      I am a quick learner, a team player, and always ready to take on new challenges.
+            I am a <strong>Full Stack Java Developer</strong> with a strong
+            foundation in Java, React, JavaScript, HTML, CSS, and SQL.
+            I enjoy building modern, responsive, and user-friendly web
+            applications that provide meaningful user experiences.
           </p>
+
+          <p>
+            Currently, I am working as an <strong>IT Intern</strong>,
+            where I am gaining hands-on experience in web development,
+            online bidding, and client communication. I am passionate
+            about learning new technologies, solving real-world problems,
+            and continuously improving my technical skills.
+          </p>
+
         </div>
-      </section>
+
+      </div>
+
+    </section>
+
 
       {/* Skills */}
       <section id="skills">
