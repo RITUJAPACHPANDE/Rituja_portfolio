@@ -16,6 +16,12 @@ import CustomCursor from './components/CustomCursor/CustomCursor';
 
 export default function App() {
   useEffect(() => {
+    // Force scroll to top on page refresh
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     // Scroll reveal observer
     const revealElements = document.querySelectorAll('.reveal');
     
