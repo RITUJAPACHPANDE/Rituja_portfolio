@@ -113,7 +113,7 @@ export default function Hero() {
               </div>
               <div className="profile-card-details">
                 <h4 className="details-name">Rituja P.</h4>
-                <p className="details-loc">Nepanagar,MP</p>
+                <p className="details-loc">Saikheda Khurd, MP</p>
                 <div className="details-code-row">
                   <span className="code-tag">Java</span>
                   <span className="code-tag">React</span>

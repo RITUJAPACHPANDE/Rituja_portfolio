@@ -1,95 +1,70 @@
-import { useEffect, useState } from 'react';
-import './Navbar.css';
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/services", label: "Services" },
+    { path: "/projects", label: "Projects" },
+    { path: "/contact", label: "Contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Set glass effect background
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      // Check active section
-      const scrollPos = window.scrollY + 150; // offset
-      for (const link of navLinks) {
-        const element = document.getElementById(link.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(link.id);
-          }
-        }
-      }
+      setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const top = element.offsetTop - 80; // Navbar offset
-      window.scrollTo({
-        top: top,
-        behavior: 'smooth',
-      });
-      setActiveSection(id);
-      setMenuOpen(false);
-    }
-  };
-
   return (
-    <nav className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar-container ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-content">
-        <a href="#home" className="nav-logo" onClick={(e) => handleLinkClick(e, 'home')}>
+
+        {/* Logo */}
+        <Link to="/" className="nav-logo">
           <span>Rituja</span>
           <span className="dot">.</span>
-        </a>
+        </Link>
 
-        {/* Mobile menu toggle */}
-        <button 
-          className={`menu-toggle ${menuOpen ? 'open' : ''}`} 
+        {/* Mobile Menu Button */}
+        <button
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label="Toggle Menu"
         >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
         </button>
 
-        <ul className={`nav-links ${menuOpen ? 'mobile-open' : ''}`}>
+        {/* Navigation */}
+        <ul className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                className={`nav-link-item ${activeSection === link.id ? 'active' : ''}`}
-                onClick={(e) => handleLinkClick(e, link.id)}
+            <li key={link.path}>
+              <Link
+                to={link.path}
+                className={`nav-link-item ${
+                  location.pathname === link.path ? "active" : ""
+                }`}
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-                <span className="link-indicator" />
-              </a>
+                <span className="link-indicator"></span>
+              </Link>
             </li>
           ))}
         </ul>
+
       </div>
     </nav>
   );

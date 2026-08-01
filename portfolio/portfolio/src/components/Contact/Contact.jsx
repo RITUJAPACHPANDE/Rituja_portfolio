@@ -59,7 +59,7 @@ export default function Contact() {
               <span className="info-detail-icon"><FaMapMarkerAlt /></span>
               <div className="info-detail-text">
                 <h4>Location</h4>
-                <span>Nepanagar, Madhya Pradesh, India</span>
+                <span>Saikheda Khurd, Nepanagar, Madhya Pradesh, India</span>
               </div>
             </div>
 

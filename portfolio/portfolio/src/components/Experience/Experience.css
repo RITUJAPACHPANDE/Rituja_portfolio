@@ -1,0 +1,139 @@
+.experience-section {
+  padding: 40px 5%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 3rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 12px var(--glow);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent);
+  transform: scale(1.1);
+}
+
+.marker-icon {
+  font-size: 0.85rem;
+  color: var(--highlight);
+  display: flex;
+}
+
+.timeline-content-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.2rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-content-card:hover {
+  transform: translateX(5px);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.card-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  font-family: var(--font-headings);
+}
+
+.timeline-period,
+.timeline-company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-role {
+  font-family: var(--font-headings);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-location {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-left: 1.2rem;
+}
+
+.timeline-bullet-list li {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  list-style-type: circle;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 2rem;
+  }
+  .timeline-line {
+    left: 10px;
+  }
+  .timeline-marker {
+    left: -32px;
+    width: 24px;
+    height: 24px;
+  }
+  .marker-icon {
+    font-size: 0.65rem;
+  }
+  .timeline-role {
+    font-size: 1.3rem;
+  }
+  .timeline-content-card {
+    padding: 1.5rem;
+  }
+}

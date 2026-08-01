@@ -1,0 +1,56 @@
+.custom-cursor-dot,
+.custom-cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--highlight);
+  border-radius: 50%;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-trail {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Click and Hover States */
+.custom-cursor-dot.clicked {
+  transform: translate(-50%, -50%) scale(0.6);
+  background-color: var(--accent);
+}
+
+.custom-cursor-trail.clicked {
+  transform: translate(-50%, -50%) scale(1.4);
+  border-color: var(--accent);
+  background-color: rgba(6, 182, 212, 0.1);
+}
+
+.custom-cursor-dot.hovered {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--accent);
+}
+
+.custom-cursor-trail.hovered {
+  transform: translate(-50%, -50%) scale(1.8);
+  border-color: var(--accent);
+  background-color: rgba(6, 182, 212, 0.05);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+
+/* Hide on Touch Devices */
+@media (max-width: 1024px) {
+  .custom-cursor-dot,
+  .custom-cursor-trail {
+    display: none !important;
+  }
+}
